@@ -1,14 +1,13 @@
 import './App.css';
-import Card from './components/Card.jsx';
-import Cards from './components/Cards.jsx';
-import SearchBar from './components/SearchBar.jsx';
+import Card from './components/Card/Card.jsx';
+import Cards from './components/Cards/Cards.jsx';
+import SearchBar from './components/SearchBar/SearchBar';
 import characters, { Rick } from './data.js';
 
 function App() {
    return (
       <div className='App'>
-         <SearchBar onSearch={(characterID) => window.alert(characterID)} />
-         <Cards characters={characters} />
+         <SearchBar onSearch={(characterID) => window.alert(characterID)} />         
          <Card
             id={Rick.id}
             name={Rick.name}
@@ -19,6 +18,7 @@ function App() {
             image={Rick.image}
             onClose={() => window.alert('Emulamos que se cierra la card')}
          />
+         <Cards characters={characters} />
       </div>
    );
 }
