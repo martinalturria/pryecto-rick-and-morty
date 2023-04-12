@@ -1,23 +1,23 @@
 import Card from "../Card/Card";
 
-export default function Cards({ characters, onClose }) {
-   return (
-      <div>
-         {characters.map(({ id, name, status, species, gender, origin, image }) => {
-            return (
-               <Card
-                  id={id}
-                  name={name}
-                  status={status}
-                  species={species}
-                  gender={gender}
-                  origin={origin.name}
-                  image={image}
-                  onClose={onClose}
-               />
-            );
-         
-         })}
-      </div>
-   );
+function Cards({ characters, onClose }) {
+    return (
+        <div>
+            {characters.map((character) => {
+                return (
+                    <Card
+                        id={character.id}
+                        name={character.name}
+                        status={character.status}
+                        species={character.species}
+                        gender={character.gender}
+                        origin={character.origin.name}
+                        image={character.image}
+                        onClose={onClose}
+                    />
+                );
+            })}
+        </div>
+    );
 }
+export default Cards;
