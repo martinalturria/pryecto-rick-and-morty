@@ -40,7 +40,7 @@ const Form = ({ login }) => {
 
                 <label htmlFor="password">Password</label>
                 <input
-                    type="text"
+                    type="password"
                     name="password"
                     value={userData.password}
                     onChange={handleChange}

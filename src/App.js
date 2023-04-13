@@ -68,6 +68,7 @@ function App() {
             <Routes>
                 <Route path="/" element={<Form login={login} />}></Route>
                 <Route
+                    className=".home"
                     path="/home"
                     element={
                         <Cards onClose={onClose} characters={characters} />

@@ -3,6 +3,7 @@ import { addFav, removeFav } from "../../redux/action";
 import { connect } from "react-redux";
 import { useState } from "react";
 import { useEffect } from "react";
+import styles from "./card.module.css"
 
 function Card(props) {
     const [isFav, setIsFav] = useState(false);
@@ -26,24 +27,23 @@ function Card(props) {
     }, [props.myFavorites]);
 
     return (
-        <div>
+        <div className={styles.container}>
+            <button className={styles.btnClose} onClick={() => props.onClose(props.id)}>X</button>
+
             {isFav ? (
-                <button onClick={handleFavorite}>❤️</button>
+                <button className={styles.btnFav} onClick={handleFavorite}>❤️</button>
             ) : (
-                <button onClick={handleFavorite}>🤍</button>
+                <button className={styles.btnFav} onClick={handleFavorite}>🤍</button>
             )}
 
-            <button onClick={() => props.onClose(props.id)}>X</button>
-
-            <NavLink to={`/detail/${props.id}`}>
-                <h2>{props.name}</h2>
+            <NavLink className={styles.navLink} to={`/detail/${props.id}`}>
+                <h2 className={styles.name}>{props.name}</h2>
             </NavLink>
 
-            <img src={props.image} alt="" />
-            <h2>{props.status}</h2>
+            <img className={styles.imgCard} src={props.image} alt="" />
             <h2>{props.species}</h2>
             <h2>{props.gender}</h2>
-            <h2>{props.origin}</h2>
+            <h4>CLICK EN EL NOMBRE PARA DETALLES</h4>
         </div>
     );
 }

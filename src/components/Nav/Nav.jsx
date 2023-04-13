@@ -5,24 +5,23 @@ import styles from "./nav.module.css";
 const Nav = ({ onSearch, logout }) => {
     return (
         <div className={styles.container}>
-            <SearchBar onSearch={onSearch} />
             <button onClick={() => onSearch(Math.ceil(Math.random() * 826))}>
                 Aleatorio
             </button>
-
-            <NavLink to="/favorites">
-                <button>Favorites</button>
-            </NavLink>
-
             <button>
-                <NavLink to="/home">Home</NavLink>
+                <NavLink className={styles.nav} to="/favorites">Favorites</NavLink>
             </button>
 
             <button>
-                <NavLink to="/about">About</NavLink>
+                <NavLink className={styles.nav} to="/home">Home</NavLink>
+            </button>
+
+            <button>
+                <NavLink className={styles.nav} to="/about">About</NavLink>
             </button>
 
             <button onClick={() => logout()}>Log Out</button>
+            <SearchBar onSearch={onSearch} />
         </div>
     );
 };

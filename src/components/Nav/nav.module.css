@@ -1,3 +1,42 @@
-.container{
+.container {
     text-align: center;
-}
+  }
+
+.container button {
+    margin-top: 20px;
+    min-width: 140px;
+    cursor: pointer;
+    height: 35px;
+    color: #0050d1f5;
+    border-radius: 80%;
+    border: 2px solid #0050d1f5;
+    background: white;
+    font-size: 20px;
+    font-weight: bold;
+  }
+  
+  .container > button:hover {
+    background: #0050d1f5;
+    color: white;
+    font-size: large;
+  }  
+  
+  .nav {
+    color: #0050d1f5;
+    text-decoration: none;
+  }
+
+  .nav:hover{
+    background: #0050d1f5;
+    color: white;
+    font-size: large;
+  }
+  
+  .Heading {
+    display: flex;
+    width: 50vw;
+    justify-content: space-around;
+    position: fixed;
+    z-index: 3;
+    top: 0;
+  }
