@@ -1,0 +1,39 @@
+.container {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+}
+
+.container input {
+    margin-top: 20px;
+    margin-right: 15px;
+    width: 25%;
+    padding-left: 15px;
+    height: 40px;
+    font-style: italic;
+    font-weight: bold;
+    outline: none;
+    border: none;
+    border-radius: 30%;
+}
+
+.container button {
+    min-width: 130px;
+    height: 40px;
+    color: #0050d1f5;
+    padding: 5px 10px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+    outline: none;
+    border-radius: 20px;
+    border: 1px solid #0050d1f5;
+    background: white;
+}
+
+.container > button:hover {
+    background: #0050d1f5;
+    color: white;
+}

@@ -1,0 +1,58 @@
+.center{
+    margin: 50px;
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    background-image: url("../../assets/Fondo-Tarjetas.png");
+    background-size: cover;
+    text-align: center;
+    border-radius: 50px;
+    box-shadow: 0px 0px 15px hwb(120 0% 50% / 0.626);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: larger;
+    font-weight: bold;
+}
+
+.container img {
+    border: none;
+    border-radius: 30%;
+    margin: 0 10px;
+}
+
+.Content {
+    margin: auto;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.Content h1 {
+    font-size: 50px;
+    font-weight: lighter;
+    transition: 5s;
+    font-family: 'Bebas Neue', cursive;
+    display: inline;
+}
+
+.Content h1:hover {
+    position: relative;
+    top: 2px;
+    left: 2px;
+}
+
+.Content p {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.Charging {
+    text-align: center;
+    margin-top: 50vh;
+}
+

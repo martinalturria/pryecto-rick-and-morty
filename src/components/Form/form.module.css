@@ -1,0 +1,82 @@
+
+
+.container {
+    display: flex;
+    background-image: url("../../assets/fondo-login.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    width: 100%;
+    height: 100vh;
+}
+
+.containerDiv {
+    margin: auto;
+    display: flex;
+    border-radius: 30px;
+    padding: 25px;
+    box-shadow: 10px 5px 40px white;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 10px 10px 5px;    
+    color: #173700;
+    font-weight: bolder;
+    filter: drop-shadow(0 0 0 #173700);
+    width: fit-content;
+    border-radius: 7px;
+    margin: auto; 
+}
+
+.form img {
+    height: 230px;
+    width: 230px;
+    filter: drop-shadow(0 0 0.75em #327800f0);
+}
+
+.form input {
+    margin: 5px;
+    border: none;
+    width: 85%;
+    border-bottom: 2px solid #327800f0;
+    padding: 5px 0px 5px 5px;
+    border-radius: 15px;
+}
+
+.form button {
+    background-color: #327800f0;
+    border: none;
+    border-radius: 40%;
+    color: #fff;
+    width: 100%;
+    cursor: pointer;
+    margin-top: 20px;
+    padding: 10px;
+    transition: .5s;
+}
+
+.form button:hover {
+    background-color: #173700;
+}
+
+.form button:disabled {
+    opacity: 40%;
+}
+
+.Form label {
+    display: block;
+    font-size: 15px;
+    font-weight: lighter;
+}
+
+.form p {
+    color: #ff0000;
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+    filter: drop-shadow(0 0 0 red);
+    font-weight: bolder;
+}

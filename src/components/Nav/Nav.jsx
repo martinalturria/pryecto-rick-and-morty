@@ -8,17 +8,17 @@ const Nav = ({ onSearch, logout }) => {
             <button onClick={() => onSearch(Math.ceil(Math.random() * 826))}>
                 Aleatorio
             </button>
-            <button>
-                <NavLink className={styles.nav} to="/favorites">Favorites</NavLink>
-            </button>
+            <NavLink to="/favorites">
+                <button className={styles.nav}>Favorites</button>
+            </NavLink>
 
-            <button>
-                <NavLink className={styles.nav} to="/home">Home</NavLink>
-            </button>
+            <NavLink to="/home">
+                <button className={styles.nav}>Home</button>
+            </NavLink>
 
-            <button>
-                <NavLink className={styles.nav} to="/about">About</NavLink>
-            </button>
+            <NavLink to="/about">
+                <button className={styles.nav}>About</button>
+            </NavLink>
 
             <button onClick={() => logout()}>Log Out</button>
             <SearchBar onSearch={onSearch} />

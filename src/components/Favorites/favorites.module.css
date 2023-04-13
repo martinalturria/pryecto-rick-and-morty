@@ -1,0 +1,87 @@
+.container {
+    margin: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.contentSelect select{
+	appearance: none;
+}
+
+.contentSelect {
+    margin: 20px;
+    display: flex;
+    align-items: center;
+    column-gap: 20px;
+    width: 500px;
+}
+
+.contentSelect select {
+    display: inline-block;
+    width: 100%;
+    cursor: pointer;
+    padding: 7px 10px;
+    height: 35px;
+    outline: 0;
+    border: 0;
+    border-radius: 0;
+    background: #f0f0f0;
+    color: #0050d1f5;
+    font-size: 1em;
+    color: #0050d1f5;
+    font-family: "Quicksand", sans-serif;
+    border: 2px solid rgba(0, 0, 0, 0.2);
+    border-radius: 12px;
+    position: relative;
+    transition: all 0.25s ease;
+}
+
+.contentSelect select:hover {
+    background: #0050d1f5;
+    color: white;
+    font-weight: bold;
+}
+
+.contentSelect i {
+    position: absolute;
+    right: 20px;
+    top: calc(50% - 13px);
+    width: 16px;
+    height: 16px;
+    display: block;
+    border-left: 4px solid #2ac176;
+    border-bottom: 4px solid #2ac176;
+    transform: rotate(-45deg); /* Giramos el cuadrado */
+    transition: all 0.25s ease;
+}
+
+.contentSelect:hover i {
+    margin-top: 3px;
+}
+
+.containerCard{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+}
+
+.btnReset {
+    margin-left: 10px;
+    min-width: 140px;
+    cursor: pointer;
+    height: 35px;
+    color: #0050d1f5;
+    border-radius: 80%;
+    border: 2px solid #0050d1f5;
+    background: white;
+    font-size: 20px;
+    font-weight: bold;
+  }
+  
+  .btnReset:hover {
+    background: #0050d1f5;
+    color: white;
+    font-size: large;
+  }  

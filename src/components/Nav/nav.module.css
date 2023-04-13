@@ -3,6 +3,7 @@
   }
 
 .container button {
+    margin-left: 10px;
     margin-top: 20px;
     min-width: 140px;
     cursor: pointer;

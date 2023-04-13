@@ -1,4 +1,5 @@
 import axios from "axios";
+import styles from "./detail.module.css";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 
@@ -10,30 +11,30 @@ const Detail = () => {
     let [character, setCharacter] = useState({});
 
     useEffect(() => {
-        axios(`${URL_BASE}/${id}?key=${API_KEY}`).then(
-            ({ data }) => {
-                if (data.name) {
-                    setCharacter(data);
-                } else {
-                    window.alert("No hay personajes con ese ID");
-                }
+        axios(`${URL_BASE}/${id}?key=${API_KEY}`).then(({ data }) => {
+            if (data.name) {
+                setCharacter(data);
+            } else {
+                window.alert("No hay personajes con ese ID");
             }
-        );
+        });
         return setCharacter({});
     }, [id]);
 
     if (Object.keys(character).length) {
         return (
-            <div>
-                <h1>{character.name}</h1>
-                <p>{character.status}</p>
-                <p>{character.species}</p>
-                <p>{character.gender}</p>
-                <p>{character.origin.name}</p>
-                <img src={character.image} />
+            <div className={styles.center}>
+                <div className={styles.container}>
+                    <img src={character.image} alt={character.name} />
+                    <h1>{character.name}</h1>
+                    <p>STATUS: {character.status}</p>
+                    <p>SPECIES: {character.species}</p>
+                    <p>GENDER: {character.gender}</p>
+                    <p>ORIGIN: {character.origin.name}</p>
+                </div>
             </div>
         );
-    } 
+    }
 };
 
 export default Detail;

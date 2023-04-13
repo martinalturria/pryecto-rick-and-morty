@@ -7,6 +7,7 @@ import {
     resetCard,
 } from "../../redux/action";
 import { useRef, useState } from "react";
+import styles from "./favorites.module.css";
 
 const Favorites = ({ myFavorites, removeFav }) => {
     const dispatch = useDispatch();
@@ -16,7 +17,7 @@ const Favorites = ({ myFavorites, removeFav }) => {
 
     const handleOrder = (event) => {
         dispatch(orderCards(event.target.value));
-        setAux(!aux)
+        setAux(!aux);
     };
 
     const handleFilter = (event) => {
@@ -24,43 +25,45 @@ const Favorites = ({ myFavorites, removeFav }) => {
     };
 
     const handleReset = (event) => {
-        event.preventDefault()
-        dispatch(resetCard({type: "RESET"}));
+        event.preventDefault();
+        dispatch(resetCard({ type: "RESET" }));
         filter.current.value = "";
         order.current.value = "";
     };
 
     return (
-        <div>
-            <select ref={order} onChange={handleOrder}>
-                <option value="A">Ascendente</option>
-                <option value="D">Descendente</option>
-            </select>
-            <select ref={filter} onChange={handleFilter}>
-                <option value="Male">Male</option>
-                <option value="Female">Female</option>
-                <option value="Genderless">Genderless</option>
-                <option value="unknown">unknown</option>
-            </select>
-            <button onClick={handleReset}>
-                Reset
-            </button>
-            {myFavorites.map((props) => {
-                return (
-                    <Card
-                        id={props.id}
-                        name={props.name}
-                        status={props.status}
-                        species={props.species}
-                        gender={props.gender}
-                        origin={props.origin.name}
-                        image={props.image}
-                        onClose={() => {
-                            removeFav(props.id);
-                        }}
-                    />
-                );
-            })}
+        <div className={styles.container}>
+            <div className={styles.contentSelect}>
+                <select ref={order} onChange={handleOrder}>
+                    <option value="A">Ascendente</option>
+                    <option value="D">Descendente</option>
+                </select>
+                <select ref={filter} onChange={handleFilter}>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Genderless">Genderless</option>
+                    <option value="unknown">unknown</option>
+                </select>
+                <button className={styles.btnReset} onClick={handleReset}>Reset</button>
+            </div>
+            <div className={styles.containerCard}>
+                {myFavorites.map((props) => {
+                    return (
+                        <Card
+                            id={props.id}
+                            name={props.name}
+                            status={props.status}
+                            species={props.species}
+                            gender={props.gender}
+                            origin={props.origin.name}
+                            image={props.image}
+                            onClose={() => {
+                                removeFav(props.id);
+                            }}
+                        />
+                    );
+                })}
+            </div>
         </div>
     );
 };
