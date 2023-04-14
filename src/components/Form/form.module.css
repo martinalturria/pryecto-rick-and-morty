@@ -24,7 +24,7 @@
     align-items: center;
     justify-content: center;
     padding: 10px 10px 10px 5px;    
-    color: #173700;
+    color: rgba(22, 0, 166, 0.63);
     font-weight: bolder;
     filter: drop-shadow(0 0 0 #173700);
     width: fit-content;

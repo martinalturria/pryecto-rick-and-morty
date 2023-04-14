@@ -19,7 +19,6 @@ const Nav = ({ onSearch, logout }) => {
             <NavLink to="/about">
                 <button className={styles.nav}>About</button>
             </NavLink>
-
             <button onClick={() => logout()}>Log Out</button>
             <SearchBar onSearch={onSearch} />
         </div>

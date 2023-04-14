@@ -9,7 +9,9 @@ import store from "./redux/store";
 ReactDOM.render(
     <Provider store={store}>
         <BrowserRouter>
-            <App />
+            <div className="fondo">
+                <App />
+            </div>
         </BrowserRouter>
     </Provider>,
     document.getElementById("root")

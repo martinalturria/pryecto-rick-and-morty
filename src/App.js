@@ -53,6 +53,7 @@ function App() {
 
     useEffect(() => {
         !access && navigate("/");
+        !access && setCharacters([])
     }, [access, navigate]);
 
     const logOut = () => {
