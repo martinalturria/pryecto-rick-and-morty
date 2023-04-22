@@ -10,15 +10,12 @@ import About from "./components/About/About";
 import Detail from "./components/Detail/Detail";
 import Form from "./components/Form/Form";
 
-const URL_BASE = `http://localhost:3001/rickandmorty/character/`;
-const API_KEY = "24082eb19c0e.16314757c26be98c3340";
+const URL_BASE = `http://localhost:3001/rickandmorty/character`;
 
 function App() {
     let [characters, setCharacters] = useState([]);
     const { pathname } = useLocation();
     const [access, setAcces] = useState(false);
-    const EMAIL = "martinalturria@hotmail.com";
-    const PASSWORD = "Martin87";
     const navigate = useNavigate();
 
     const onSearch = (id) => {
@@ -41,15 +38,15 @@ function App() {
         setCharacters(characters.filter((character) => character.id !== id));
     };
 
-    const login = (userData) => {
-        if (userData.email === EMAIL && userData.password === PASSWORD) {
-            setAcces(true);
-            navigate("/home");
-        } else {
-            navigate("/");
-            alert("Datos de usuario y contraseña incorrectos");
-        }
-    };
+    function login(userData) {
+        const { email, password } = userData;
+        const URL = "http://localhost:3001/rickandmorty/login/";
+        axios(URL + `?email=${email}&password=${password}`).then(({ data }) => {
+            const { access } = data;
+            setAcces(data);
+            access && navigate("/home");
+        });
+    }
 
     useEffect(() => {
         !access && navigate("/");

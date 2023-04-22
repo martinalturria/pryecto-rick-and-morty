@@ -1,0 +1,14 @@
+const {Router} = require("express")
+const router = Router()
+const login = require("../controllers/login")
+const getCharById = require("../controllers/getCharById")
+const {postFav, deleteFav} = require("../controllers/handleFavorites")
+
+router.get("/character/:id", (req, res) =>{getCharById(req, res)})
+router.get("/login", (req, res) =>{login(req, res)})
+router.get("/fav", (req, res) =>{postFav(req, res)})
+router.get("/fav/:id", (req, res) =>{deleteFav(req, res)})
+
+module.exports = router
+
+
