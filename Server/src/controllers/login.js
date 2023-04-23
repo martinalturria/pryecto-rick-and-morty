@@ -8,7 +8,6 @@ const login = (req, res) => {
         users.forEach((user) => {
             user.email === email && user.password === password && (access = true)
         })
-
         res.status(200).json({access})
     }
 };

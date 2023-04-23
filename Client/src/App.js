@@ -18,35 +18,41 @@ function App() {
     const [access, setAcces] = useState(false);
     const navigate = useNavigate();
 
-    const onSearch = (id) => {
+    const onSearch = async (id) => {
         for (const character of characters) {
             if (character.id === id)
                 return window.alert("El personaje ya fue Agregado!");
         }
-        axios(`${URL_BASE}/${id}`)
-            .then(({ data }) => {
-                if (data.name) {
-                    setCharacters((oldChars) => [...oldChars, data]);
-                } else {
-                    window.alert("¡No hay personajes con este ID!");
-                }
-            })
-            .catch(() => window.alert("¡No hay personajes con este ID!"));
+        try {
+            const response = await axios(`${URL_BASE}/${id}`);
+            if (response.data.name) {
+                setCharacters((oldChars) => [...oldChars, response.data]);
+            } else {
+                window.alert("¡No hay personajes con este ID!");
+            }
+        } catch (error) {
+            window.alert("¡No hay personajes con este ID!");
+        }
     };
 
     const onClose = (id) => {
         setCharacters(characters.filter((character) => character.id !== id));
     };
 
-    function login(userData) {
+    const login = async (userData) => {
         const { email, password } = userData;
         const URL = "http://localhost:3001/rickandmorty/login/";
-        axios(URL + `?email=${email}&password=${password}`).then(({ data }) => {
-            const { access } = data;
-            setAcces(data);
+
+        try {
+            const response = await axios(
+                URL + `?email=${email}&password=${password}`
+            );
+            const { access } = response.data;
+            setAcces(response.data);
             access && navigate("/home");
-        });
-    }
+            !access && window.alert("Los Datos ingresados son incorrectos");
+        } catch (error) {}
+    };
 
     useEffect(() => {
         !access && navigate("/");

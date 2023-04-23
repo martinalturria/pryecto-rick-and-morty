@@ -4,8 +4,7 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 const Detail = () => {
-    const URL_BASE = "http://localhost:3001/rickandmorty/character/";
-    const API_KEY = "24082eb19c0e.16314757c26be98c3340";
+    const URL_BASE = "https://rickandmortyapi.com/api/character";
 
     let { id } = useParams();
     let [character, setCharacter] = useState({});
