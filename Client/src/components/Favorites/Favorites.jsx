@@ -44,12 +44,15 @@ const Favorites = ({ myFavorites, removeFav }) => {
                     <option value="Genderless">Genderless</option>
                     <option value="unknown">unknown</option>
                 </select>
-                <button className={styles.btnReset} onClick={handleReset}>Reset</button>
+                <button className={styles.btnReset} onClick={handleReset}>
+                    Reset
+                </button>
             </div>
             <div className={styles.containerCard}>
                 {myFavorites.map((props) => {
                     return (
                         <Card
+                            key={props.id}
                             id={props.id}
                             name={props.name}
                             status={props.status}

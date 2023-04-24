@@ -24,7 +24,7 @@ function Card(props) {
                 setIsFav(true);
             }
         });
-    }, [props.myFavorites]);
+    }, [props]);
 
     return (
         <div className={styles.container}>

@@ -24,11 +24,9 @@ function App() {
                 return window.alert("El personaje ya fue Agregado!");
         }
         try {
-            const response = await axios(`${URL_BASE}/${id}`);
-            if (response.data.name) {
-                setCharacters((oldChars) => [...oldChars, response.data]);
-            } else {
-                window.alert("¡No hay personajes con este ID!");
+            const { data } = await axios(`${URL_BASE}/${id}`);
+            if (data.name) {
+                setCharacters((oldChars) => [...oldChars, data]);
             }
         } catch (error) {
             window.alert("¡No hay personajes con este ID!");
@@ -44,11 +42,11 @@ function App() {
         const URL = "http://localhost:3001/rickandmorty/login/";
 
         try {
-            const response = await axios(
+            const { data } = await axios(
                 URL + `?email=${email}&password=${password}`
             );
-            const { access } = response.data;
-            setAcces(response.data);
+            const { access } = data;
+            setAcces(data);
             access && navigate("/home");
             !access && window.alert("Los Datos ingresados son incorrectos");
         } catch (error) {}

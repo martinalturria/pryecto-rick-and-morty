@@ -1,5 +1,5 @@
 import Card from "../Card/Card";
-import style from "./cards.module.css"
+import style from "./cards.module.css";
 
 function Cards({ characters, onClose }) {
     return (
@@ -7,6 +7,7 @@ function Cards({ characters, onClose }) {
             {characters.map((character) => {
                 return (
                     <Card
+                        key={character.id}
                         id={character.id}
                         name={character.name}
                         status={character.status}
