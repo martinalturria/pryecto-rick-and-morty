@@ -1,6 +1,7 @@
 const axios = require("axios");
 const { URL } = process.env;
 
+
 const getCharById = async (req, res) => {
     const { id } = req.params;
     try {
