@@ -21,6 +21,7 @@ describe("Test de RUTAS", () => {
             await agent.get("/rickandmorty/character/1235").expect(500);
         });
     });
+
     describe("GET /rickandmorty/login", () => {
         it("Informacion Correcta", async () => {
             const response = await agent.get(
@@ -36,32 +37,54 @@ describe("Test de RUTAS", () => {
             expect(response.body).toEqual({ access: false });
         });
     });
-    describe("GET /rickandmorty/fav", () => {
+
+    describe("POST /rickandmorty/fav", () => {
+        const favoriteMartin = { id: 34, name: "Martin" };
+        const favoriteJairo = { id: 18, name: "Jairo" };
+        const favorites = [
+            {
+                id: 34,
+                name: "Martin",
+            },
+            {
+                id: 18,
+                name: "Jairo",
+            },
+        ];
         it("Devuelve un arreglo con la informacion enviada", async () => {
-            const response = await agent.post("/rickandmorty/fav").send({
-                id: 1,
-                name: "Nombre A",
-            });
-            expect(response.body).toContainEqual({ id: 1, name: "Nombre A" });
+            const response = await agent
+                .post("/rickandmorty/fav")
+                .send(favoriteMartin);
+            expect(response.body).toContainEqual(favoriteMartin);
         });
-        it("Devuelve un arreglo con la informacion enviada", async () => {
-            const response = await agent.post("/rickandmorty/fav").send({
-                id: 2,
-                name: "Nombre B",
-            });
-            expect(response.body).toContainEqual({ id: 1, name: "Nombre A" });
-            expect(response.body).toContainEqual({ id: 2, name: "Nombre B" });
+        it("Devuelve un arreglo con la informacion enviada mas el anterior", async () => {
+            const response = await agent
+                .post("/rickandmorty/fav")
+                .send(favoriteJairo);
+            expect(response.body).toEqual(favorites);
         });
     });
+
     describe("DELETE /rickandmorty/fav/:id", () => {
+        const favoriteMartin = { id: 34, name: "Martin" };
+        const favoriteJairo = { id: 18, name: "Jairo" };
+        const favorites = [
+            {
+                id: 34,
+                name: "Martin",
+            },
+            {
+                id: 18,
+                name: "Jairo",
+            },
+        ];
         it("Si no se elimino el personaje se devuelve el mismo Array", async () => {
             const response = await agent.delete("/rickandmorty/fav/123");
-            expect(response.body).toContainEqual({ id: 1, name: "Nombre A" });
-            expect(response.body).toContainEqual({ id: 2, name: "Nombre B" });
+            expect(response.body).toEqual(favorites);
         });
         it("Elimina correctamente el personaje indicado por ID", async () => {
-            const response = await agent.delete("/rickandmorty/fav/1");
-            expect(response.body).not.toContainEqual({ id: 1, name: "Nombre A" });
+            const response = await agent.delete("/rickandmorty/fav/18");
+            expect(response.body).not.toContainEqual(favoriteJairo);
         });
     });
 });
